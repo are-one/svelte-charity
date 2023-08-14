@@ -1,5 +1,11 @@
 Charity Svelte (3.55.0) App
+<<<<<<< HEAD
 Ini adalah studi kasus course svelte
+=======
+
+Ini adalah studi kasus course svelte
+
+>>>>>>> 7244486810ae2fcf46992b370c94e40863c85ebf
 --
 
 # svelte app
