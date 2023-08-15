@@ -1,4 +1,7 @@
 <script>
+	import Home from "./pages/Home.svelte";
+
 	export let name;
 </script>
-<h1>{name}</h1>
+
+<Home {name} />
