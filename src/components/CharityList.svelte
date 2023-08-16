@@ -4,6 +4,13 @@
     function calculateFunded(pledged, target) {
         return Math.round((1 / (target/pledged)) * 100);
     }
+
+    function formatCurrency(nominal) {
+        return nominal.toLocaleString("id-ID", {
+            style: "currency",
+            currency: "IDR"
+        });
+    }
 </script>
 
 <!-- <div>
@@ -94,7 +101,7 @@
                             <a href="#" class="xs-post-title xs-mb-30">{charity.title}</a>
 
                             <ul class="xs-list-with-content">
-                                <li>{charity.pledged}<span>Pledged</span></li>
+                                <li>{formatCurrency(charity.pledged)}<span>Pledged</span></li>
                                 <li><span class="number-percentage-count number-percentage" data-value="{calculateFunded(charity.pledged, charity.target)}"
                                         data-animation-duration="3500">{calculateFunded(charity.pledged, charity.target)}</span>% <span>Funded</span></li>
                                 <li>
