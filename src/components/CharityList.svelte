@@ -81,7 +81,7 @@
 
                             <div class="xs-skill-bar">
                                 <div class="xs-skill-track">
-                                    <p><span class="number-percentage-count number-percentage" data-value="{calculateFunded(charity.pledged, charity.target)}"
+                                    <p><span class:number-percentage-count={charity.pledged != 0} class:number-percentage={charity.pledged != 0} data-value="{calculateFunded(charity.pledged, charity.target)}"
                                             data-animation-duration="3500">{calculateFunded(charity.pledged, charity.target)}</span>%</p>
                                 </div>
                             </div>
