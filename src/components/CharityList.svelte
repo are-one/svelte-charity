@@ -1,5 +1,9 @@
 <script>
     export let charities;
+
+    function calculateFunded(pledged, target) {
+        return Math.round((1 / (target/pledged)) * 100);
+    }
 </script>
 
 <!-- <div>
@@ -77,8 +81,8 @@
 
                             <div class="xs-skill-bar">
                                 <div class="xs-skill-track">
-                                    <p><span class="number-percentage-count number-percentage" data-value="{charity.pledged}"
-                                            data-animation-duration="3500">{charity.pledged}</span>%</p>
+                                    <p><span class="number-percentage-count number-percentage" data-value="{calculateFunded(charity.pledged, charity.target)}"
+                                            data-animation-duration="3500">{calculateFunded(charity.pledged, charity.target)}</span>%</p>
                                 </div>
                             </div>
                         </div><!-- .xs-item-header END -->
@@ -91,8 +95,8 @@
 
                             <ul class="xs-list-with-content">
                                 <li>{charity.pledged}<span>Pledged</span></li>
-                                <li><span class="number-percentage-count number-percentage" data-value="{charity.pledged}"
-                                        data-animation-duration="3500">{charity.pledged}</span>% <span>Funded</span></li>
+                                <li><span class="number-percentage-count number-percentage" data-value="{calculateFunded(charity.pledged, charity.target)}"
+                                        data-animation-duration="3500">{calculateFunded(charity.pledged, charity.target)}</span>% <span>Funded</span></li>
                                 <li>
                                     {charity.date_end}
                                     <span>Days to go</span>
