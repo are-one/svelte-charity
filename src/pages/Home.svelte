@@ -1,9 +1,16 @@
 <script>
 	import CharityList from "../components/CharityList.svelte";
-	import { charities } from "../data/charities";
+	import Header from "../components/Header.svelte";
+	import Welcome from "../components/Welcome.svelte";
+	import Promo from "../components/Promo.svelte";
+	import Footer from "../components/Footer.svelte";
 
-	export let name;
+	import { charities } from "../data/charities";
 </script>
-<h1>{name}</h1>
+
+<Header />
+<Welcome />
 <CharityList {charities} />
+<Promo />
+<Footer />
 
