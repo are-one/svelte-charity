@@ -11,6 +11,13 @@
             currency: "IDR"
         });
     }
+
+    function calculateDaysRemaining(date_end) {
+        const delta = date_end - new Date();
+
+        const oneDay = 24 * 60 * 60 * 1000;
+        return Math.round(Math.abs(delta/oneDay));
+    }
 </script>
 
 <!-- <div>
@@ -105,7 +112,7 @@
                                 <li><span class="number-percentage-count number-percentage" data-value="{calculateFunded(charity.pledged, charity.target)}"
                                         data-animation-duration="3500">{calculateFunded(charity.pledged, charity.target)}</span>% <span>Funded</span></li>
                                 <li>
-                                    {charity.date_end}
+                                    {calculateDaysRemaining(charity.date_end)}
                                     <span>Days to go</span>
                                 </li>
                             </ul>
