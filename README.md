@@ -1,6 +1,9 @@
 Charity Svelte (3.55.0) App<br>
 Ini adalah studi kasus course svelte
---
+
+## Live Application
+
+You can access this application on https://are-one-charity.netlify.com
 
 # svelte app
 
