@@ -134,10 +134,12 @@
 
                             <span class="xs-separetor"></span>
 
-                            <a href="#" data-toggle="modal" data-target="#exampleModal"
+                            <button 
+                                data-toggle="modal"
+                                data-target="#exampleModal"
                                 class="btn btn-primary btn-block">
                                 Donate This Cause
-                            </a>
+                            </button>
                         </div><!-- .xs-item-content END -->
                     </div><!-- .xs-popular-item END -->
                 </div>
