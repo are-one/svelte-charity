@@ -3,7 +3,7 @@ Ini adalah studi kasus course svelte
 
 ## Live Application
 
-You can access this application on https://are-one-charity.netlify.com
+You can access this application on <a href="https://are-one-charity.netlify.app">https://are-one-charity.netlify.app</a>
 
 # svelte app
 
