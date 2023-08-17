@@ -10,21 +10,21 @@
                     <p>CharityPress online and raise money for charity and causes you’re passionate about.
                         CharityPress is an innovative, cost-effective online.</p>
                     <ul class="xs-social-list-v2">
-                        <li><a href="" class="color-facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="" class="color-twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="" class="color-dribbble"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="" class="color-pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#fb" class="color-facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#twitter" class="color-twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#dribble" class="color-dribbble"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#pinterst" class="color-pinterest"><i class="fa fa-pinterest"></i></a></li>
                     </ul><!-- .xs-social-list END -->
                 </div>
                 <div class="col-lg-4 col-md-6 footer-widget">
                     <h3 class="widget-title">About Us</h3>
                     <ul class="xs-footer-list">
-                        <li><a href="index.html">About employee</a></li>
-                        <li><a href="#">How it works</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#about">About employee</a></li>
+                        <li><a href="#how">How it works</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#press">Press</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 footer-widget">
@@ -50,9 +50,9 @@
                 <div class="col-md-6">
                     <nav class="xs-footer-menu">
                         <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Help Desk</a></li>
-                            <li><a href="#">Support</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#helpDesk">Help Desk</a></li>
+                            <li><a href="#support">Support</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -60,6 +60,6 @@
         </div>
     </div>
     <div class="xs-back-to-top-wraper">
-        <a href="#" class="xs-back-to-top"><i class="fa fa-angle-up"></i></a>
+        <a href="#top" class="xs-back-to-top"><i class="fa fa-angle-up"></i></a>
     </div>
 </footer>
