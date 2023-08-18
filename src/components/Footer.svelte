@@ -19,12 +19,12 @@
                 <div class="col-lg-4 col-md-6 footer-widget">
                     <h3 class="widget-title">About Us</h3>
                     <ul class="xs-footer-list">
-                        <li><a href="#about">About employee</a></li>
+                        <li><a href="/">About employee</a></li>
                         <li><a href="#how">How it works</a></li>
                         <li><a href="#careers">Careers</a></li>
                         <li><a href="#press">Press</a></li>
                         <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6 footer-widget">
