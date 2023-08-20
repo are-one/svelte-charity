@@ -22,5 +22,8 @@
 <CharityList {charities} />
 <Promo />
 <Footer />
-<MainScript />
+
+{#if charities.length > 0}
+	<MainScript />
+{/if}
 
