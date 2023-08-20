@@ -1,8 +1,31 @@
+ <script>
+  import Header from "../components/Header.svelte";
+  import Footer from "../components/Footer.svelte";
+  import MainScript from "../components/MainScript.svelte";
+ </script>
+
+ <style>
+  #xs-input-checkbox {
+    display: flex;
+    align-items: center;
+  }
+
+  #xs-donate-agree {
+    width: 35px;
+  }
+
+  label[for='xs-donate-agree']{
+    margin: 0;
+    margin-left: 10px;
+  }
+ </style>
+ 
+ <Header />
  <!-- welcome section -->
     <!--breadcumb start here-->
     <section
       class="xs-banner-inner-section parallax-window"
-      style="background-image: url('/assets/images/backgrounds/about_bg.jpg')"
+      style="background-image: url('/assets/images/backgrounds/kat-yukawa-K0E6E0a0R3A-unsplash.jpg')"
     >
       <div class="xs-black-overlay"></div>
       <div class="container">
@@ -26,7 +49,7 @@
             <div class="col-lg-6">
               <div class="xs-donation-form-images">
                 <img
-                  src="/assets/images/family.jpg"
+                  src="/assets/images/christian-dubovan-Y_x747Yshlw-unsplash.jpg"
                   class="img-responsive"
                   alt="Family Images"
                 />
@@ -53,8 +76,22 @@
                   name="xs-donation-form"
                 >
                   <div class="xs-input-group">
-                    <label for="xs-donate-name"
+                    <label for="xs-donate-amount"
                       >Donation Amount
+                      <span class="color-light-red">**</span></label
+                    >
+                    <input
+                      type="text"
+                      name="amount"
+                      id="xs-donate-amount"
+                      class="form-control"
+                      placeholder="Minimum of $5"
+                    />
+                  </div>
+                  <!-- .xs-input-group END -->
+                  <div class="xs-input-group">
+                    <label for="xs-donate-name"
+                      >Your Name
                       <span class="color-light-red">**</span></label
                     >
                     <input
@@ -62,26 +99,34 @@
                       name="name"
                       id="xs-donate-name"
                       class="form-control"
-                      placeholder="Minimum of $5"
+                      placeholder="Your awesome name"
                     />
                   </div>
                   <!-- .xs-input-group END -->
                   <div class="xs-input-group">
-                    <label for="xs-donate-charity"
-                      >List of Evaluated Charities
+                    <label for="xs-donate-email"
+                      >Your Email
                       <span class="color-light-red">**</span></label
                     >
-                    <select
-                      name="charity-name"
-                      id="xs-donate-charity"
+                    <input
+                      type="text"
+                      name="email"
+                      id="xs-donate-email"
                       class="form-control"
+                      placeholder="email@awesome.com"
+                    />
+                  </div>
+                  <!-- .xs-input-group END -->
+                  <div class="xs-input-group" id="xs-input-checkbox">
+                      <input
+                        type="checkbox"
+                        name="agree"
+                        id="xs-donate-agree"
+                      />
+                    <label for="xs-donate-agree"
+                      >I Agree
+                      <span class="color-light-red">**</span></label
                     >
-                      <option value="">Select</option>
-                      <option value="amarokSocity">Amarok socity</option>
-                      <option value="amarokSocity">Amarok socity</option>
-                      <option value="amarokSocity">Amarok socity</option>
-                      <option value="amarokSocity">Amarok socity</option>
-                    </select>
                   </div>
                   <!-- .xs-input-group END -->
                   <button type="submit" class="btn btn-warning">
@@ -99,3 +144,7 @@
       </section>
       <!-- End donation form section -->
     </main>
+
+<Footer />
+
+<MainScript />
