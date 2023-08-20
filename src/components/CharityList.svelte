@@ -3,6 +3,8 @@
 
     export let charities;
 
+    console.log(charities);
+
     function calculateFunded(pledged, target) {
         return Math.round((1 / (target/pledged)) * 100);
     }
@@ -43,7 +45,6 @@
             </div><!-- .xs-heading-title END -->
         </div><!-- .row end -->
 
-        {#if charities !== undefined}
         <div class="row">
             {#each charities as charity}
                 <div class="col-lg-4 col-md-6">
@@ -144,7 +145,6 @@
                 </div>
             {/each}
         </div><!-- .row end -->
-        {/if}
     </div><!-- .container end -->
 </section><!-- End popularCauses section -->
 

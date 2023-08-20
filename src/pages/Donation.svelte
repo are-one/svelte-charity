@@ -2,18 +2,19 @@
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
-  import { charities } from "../data/charities";
+  import { onMount } from "svelte";
 
   export let params;
-  let data = {};
+  let charity;
 
-  function getCharity(id) {
-    return charities.find(function(charity) {
-      return charity.id == parseInt(id);
-    });
+  async function getCharity(id) {
+      const res = await fetch(`https://bwacharity.fly.dev/charities/${id}`);
+      return res.json();
   }
 
-  data = getCharity(params.id);
+  onMount(async function() {
+     charity = await getCharity(params.id);
+  });
  </script>
 
  <style>
@@ -39,7 +40,7 @@
  <Header />
  <!-- welcome section -->
     <!--breadcumb start here-->
-  {#if data}
+  {#if charity}
     <section
       class="xs-banner-inner-section parallax-window"
       style="background-image: url('/assets/images/backgrounds/kat-yukawa-K0E6E0a0R3A-unsplash.jpg')"
@@ -48,7 +49,7 @@
       <div class="container">
         <div class="color-white xs-inner-banner-content">
           <h2>Donate Now</h2>
-          <p>{data.title}</p>
+          <p>{charity.title}</p>
           <ul class="xs-breadcumb">
             <li class="badge badge-pill badge-primary">
               <a href="/" class="color-white">Home /</a> Donate
@@ -66,7 +67,7 @@
             <div class="col-lg-6">
               <div class="xs-donation-form-images">
                 <img
-                  src={data.thumbnail ? data.thumbnail : "/assets/images/christian-dubovan-Y_x747Yshlw-unsplash.jpg"}
+                  src={charity.thumbnail ? charity.thumbnail : "/assets/images/christian-dubovan-Y_x747Yshlw-unsplash.jpg"}
                   class="img-responsive"
                   alt="Family Images"
                 />
@@ -75,7 +76,7 @@
             <div class="col-lg-6">
               <div class="xs-donation-form-wraper">
                 <div class="xs-heading xs-mb-30">
-                  <h2 class="xs-title">{data.title}</h2>
+                  <h2 class="xs-title">{charity.title}</h2>
                   <p class="small">
                     To learn more about make donate charity with us visit our
                     "<span class="color-green">Contact us</span>" site. By
