@@ -18,11 +18,7 @@
 	},
 	() => (page = Donation));
 
-<<<<<<< HEAD
 	router('/*', () => (page = NotFound));
-=======
-	router('*', () => (page = NotFound));
->>>>>>> f2eb8288f9173465d437c90a5555e3370edc4282
 	
 	router.start();
 
