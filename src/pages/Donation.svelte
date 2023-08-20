@@ -34,7 +34,7 @@
           <p>Give a helping hand for poor people</p>
           <ul class="xs-breadcumb">
             <li class="badge badge-pill badge-primary">
-              <a href="index.html" class="color-white">Home /</a> Donate
+              <a href="/" class="color-white">Home /</a> Donate
             </li>
           </ul>
         </div>
