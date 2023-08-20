@@ -3,8 +3,6 @@
 
     export let charities;
 
-    console.log(charities);
-
     function calculateFunded(pledged, target) {
         return Math.round((1 / (target/pledged)) * 100);
     }
@@ -100,7 +98,8 @@
 
                             <div class="xs-skill-bar">
                                 <div class="xs-skill-track">
-                                    <p><span class:number-percentage-count={charity.pledged != 0} class:number-percentage={charity.pledged != 0} data-value="{calculateFunded(charity.pledged, charity.target)}"
+                                    
+                                    <p><span class:number-percentage-count={calculateFunded(charity.pledged, charity.target) > 7} class:number-percentage={calculateFunded(charity.pledged, charity.target) > 7} data-value="{calculateFunded(charity.pledged, charity.target)}"
                                             data-animation-duration="3500">{calculateFunded(charity.pledged, charity.target)}</span>%</p>
                                 </div>
                             </div>
