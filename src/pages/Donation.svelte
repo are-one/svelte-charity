@@ -2,10 +2,10 @@
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
-  import charities from "../data/charities";
+  import { charities } from "../data/charities";
 
   export let params;
-  let data;
+  let data = {};
 
   function getCharity(id) {
     return charities.find(function(charity) {
@@ -30,11 +30,16 @@
     margin: 0;
     margin-left: 10px;
   }
+
+  .xs-donation-form-images {
+    text-align: center;
+  }
  </style>
  
  <Header />
  <!-- welcome section -->
     <!--breadcumb start here-->
+  {#if data}
     <section
       class="xs-banner-inner-section parallax-window"
       style="background-image: url('/assets/images/backgrounds/kat-yukawa-K0E6E0a0R3A-unsplash.jpg')"
@@ -43,7 +48,7 @@
       <div class="container">
         <div class="color-white xs-inner-banner-content">
           <h2>Donate Now</h2>
-          <p>Give a helping hand for poor people</p>
+          <p>{data.title}</p>
           <ul class="xs-breadcumb">
             <li class="badge badge-pill badge-primary">
               <a href="/" class="color-white">Home /</a> Donate
@@ -61,7 +66,7 @@
             <div class="col-lg-6">
               <div class="xs-donation-form-images">
                 <img
-                  src="/assets/images/christian-dubovan-Y_x747Yshlw-unsplash.jpg"
+                  src={data.thumbnail ? data.thumbnail : "/assets/images/christian-dubovan-Y_x747Yshlw-unsplash.jpg"}
                   class="img-responsive"
                   alt="Family Images"
                 />
@@ -70,7 +75,7 @@
             <div class="col-lg-6">
               <div class="xs-donation-form-wraper">
                 <div class="xs-heading xs-mb-30">
-                  <h2 class="xs-title">Make a donation</h2>
+                  <h2 class="xs-title">{data.title}</h2>
                   <p class="small">
                     To learn more about make donate charity with us visit our
                     "<span class="color-green">Contact us</span>" site. By
@@ -156,6 +161,7 @@
       </section>
       <!-- End donation form section -->
     </main>
+  {/if}
 
 <Footer />
 
