@@ -20,6 +20,8 @@
         const oneDay = 24 * 60 * 60 * 1000;
         return Math.round(Math.abs(delta/oneDay));
     }
+
+    
 </script>
 
 <!-- <div>
