@@ -2,6 +2,18 @@
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
+  import charities from "../data/charities";
+
+  export let params;
+  let data;
+
+  function getCharity(id) {
+    return charities.find(function(charity) {
+      return charity.id == parseInt(id);
+    });
+  }
+
+  data = getCharity(params.id);
  </script>
 
  <style>
