@@ -12,13 +12,8 @@
 	router('/contact', () => (page = Contact));
 	router('/donation', () => (page = Donation));
 	
-	router();
+	router.start();
 
 </script>
-
-<!-- <svelte:head>
-	<script src="assets/js/main.js"></script>
-</svelte:head> -->
-
 
 <svelte:component this={page} />
