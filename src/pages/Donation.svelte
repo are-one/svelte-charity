@@ -1,4 +1,5 @@
  <script>
+  import router from "page";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
@@ -36,6 +37,7 @@
       );
 
       console.log(res);
+      router.redirect('/success');
     } catch (error) {
       console.log(error);
     }
