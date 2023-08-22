@@ -1,4 +1,4 @@
-export const handler = function (event, context, callback) {
+exports.handler = function (event, context, callback) {
   const Midtrans = require("midtrans-client");
 
   const headers = {
