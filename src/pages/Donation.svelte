@@ -5,7 +5,7 @@
   import { onMount } from "svelte";
 
   export let params;
-  let charity;
+  let charity, amount, name, email, agree = false;
 
   async function getCharity(id) {
       const res = await fetch(`https://bwacharity.fly.dev/charities/${id}`);
@@ -15,6 +15,31 @@
   onMount(async function() {
      charity = await getCharity(params.id);
   });
+
+  function handleButtonClick() {
+    console.log('Button click!');
+  }
+
+  async function handleFormSubmit(event) {
+    charity.pledged = charity.pledged + parseInt(amount);
+
+    try {
+      const res =await fetch(
+        `https://bwacharity.fly.dev/charities/${params.id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type' : 'application/json'
+          },
+          body: JSON.stringify(charity)
+        }
+      );
+
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
  </script>
 
  <style>
@@ -88,6 +113,7 @@
                 <!-- .xs-heading end -->
                 <form
                   action="#"
+                  on:submit|preventDefault={handleFormSubmit}
                   method="post"
                   id="xs-donation-form"
                   class="xs-donation-form"
@@ -103,7 +129,9 @@
                       name="amount"
                       id="xs-donate-amount"
                       class="form-control"
-                      placeholder="Minimum of $5"
+                      bind:value={amount}
+                      required='true'
+                      placeholder="Your donation in Rupiah"
                     />
                   </div>
                   <!-- .xs-input-group END -->
@@ -117,6 +145,8 @@
                       name="name"
                       id="xs-donate-name"
                       class="form-control"
+                      bind:value={name}
+                      required='true'
                       placeholder="Your awesome name"
                     />
                   </div>
@@ -131,6 +161,8 @@
                       name="email"
                       id="xs-donate-email"
                       class="form-control"
+                      bind:value={email}
+                      required='true'
                       placeholder="email@awesome.com"
                     />
                   </div>
@@ -140,6 +172,7 @@
                         type="checkbox"
                         name="agree"
                         id="xs-donate-agree"
+                        bind:checked={agree}
                       />
                     <label for="xs-donate-agree"
                       >I Agree
@@ -147,7 +180,7 @@
                     >
                   </div>
                   <!-- .xs-input-group END -->
-                  <button type="submit" class="btn btn-warning">
+                  <button type="submit" disabled={!agree} class="btn btn-warning">
                     <span class="badge"><i class="fa fa-heart"></i></span>
                     Donate now
                   </button>
