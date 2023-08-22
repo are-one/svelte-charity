@@ -1,0 +1,18 @@
+Configurasi netlify untuk deploy SPA yang hanya menggunakan satu halaman seperti index.html
+configurasi bertujuan untuk memerintahkan netlify agar semua alamat atau url akan dihandle oleh satu halaman.
+Jika tidak dilakukan konfigurasi maka url lain selain base URL maka akan terjadi page not found dari netlify.
+
+cara 1:
+ubah nama file dalam folder public dari "_redirects.example" menjadi "_redirects"
+dan isi file sebagai berikut:
+
+/*    /index.html   200
+
+
+cara 2:
+Menggunakan file configurasi dari netlify yang disimpan di root directory project (bukan folder public) dengan nama file "netlify.toml" dan isi file sebagai berikut:
+
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
