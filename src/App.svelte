@@ -20,7 +20,7 @@
 	},
 	() => (page = Donation));
 
-	router('*', () => (page = NotFound));
+	router('/*', () => (page = NotFound));
 	
 	router.start();
 
