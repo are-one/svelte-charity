@@ -26,4 +26,8 @@
 
 </script>
 
-<svelte:component this={page} params={params} />
+{#if params}
+	<svelte:component this={page} {params} />
+{:else}
+	<svelte:component this={page} />
+{/if}

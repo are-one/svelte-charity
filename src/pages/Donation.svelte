@@ -1,24 +1,21 @@
- <script>
+<script>
   import router from "page";
+  import Loader from "../components/Loader.svelte";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
-  import { onMount } from "svelte";
 
   export let params;
-  let charity, amount, name, email, agree = false;
+  let charity,
+      amount,
+      name,
+      email,
+      agree = false,
+      data = getCharity(params.id);
 
   async function getCharity(id) {
       const res = await fetch(`https://bwacharity.fly.dev/charities/${id}`);
       return res.json();
-  }
-
-  onMount(async function() {
-     charity = await getCharity(params.id);
-  });
-
-  function handleButtonClick() {
-    console.log('Button click!');
   }
 
   async function handleFormSubmit(event) {
@@ -42,6 +39,8 @@
       console.log(error);
     }
   }
+
+  data.then((value) => charity = value);
  </script>
 
  <style>
@@ -67,7 +66,9 @@
  <Header />
  <!-- welcome section -->
     <!--breadcumb start here-->
-  {#if charity}
+  {#await data}
+    <Loader />
+  {:then}
     <section
       class="xs-banner-inner-section parallax-window"
       style="background-image: url('/assets/images/backgrounds/kat-yukawa-K0E6E0a0R3A-unsplash.jpg')"
@@ -197,7 +198,7 @@
       </section>
       <!-- End donation form section -->
     </main>
-  {/if}
+  {/await}
 
 <Footer />
 
