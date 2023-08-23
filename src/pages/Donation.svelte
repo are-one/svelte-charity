@@ -3,7 +3,7 @@
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
-  import { charity, getCharity } from "../store";
+  import { charity, getCharity } from "../stores/charity";
 
   export let params;
   let amount,

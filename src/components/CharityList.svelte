@@ -1,5 +1,5 @@
 <script>
-    import {charities} from "../store";
+    import {charities} from "../stores/charity";
     import Loader from "./Loader.svelte";
     import Modal from "./Modal.svelte";
 

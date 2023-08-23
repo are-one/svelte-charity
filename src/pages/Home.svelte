@@ -5,7 +5,7 @@
 	import Promo from "../components/Promo.svelte";
 	import Footer from "../components/Footer.svelte";
 	import MainScript from "../components/MainScript.svelte";
-  	import { charities } from "../store";
+  	import { charities } from "../stores/charity";
 </script>
 
 <Header />
