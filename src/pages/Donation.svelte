@@ -1,5 +1,5 @@
 <script>
-  import router from "page";
+  import router, { redirect } from "page";
   import Loader from "../components/Loader.svelte";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
@@ -33,8 +33,23 @@
         }
       );
 
-      console.log(res);
-      router.redirect('/success');
+      const resMid = await fetch(`/.netlify/functions/payment`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: params.id,
+          amount: parseInt(amount),
+          name,
+          email
+        })
+      });
+
+      const midtransData = await resMid.json(); 
+
+      window.location.href = midtransData.url;
+      
     } catch (error) {
       console.log(error);
     }
