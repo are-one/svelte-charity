@@ -96,7 +96,7 @@
                     <div class="xs-popular-item xs-box-shadow">
                         <div class="xs-item-header">
 
-                            <img referrerpolicy="unsafe-url" src="{charity.thumbnail}" alt="">
+                            <img referrerpolicy="unsafe-url" src={charity.thumbnail} alt={charity.thumbnail}>
 
                             <div class="xs-skill-bar">
                                 <div class="xs-skill-track">
