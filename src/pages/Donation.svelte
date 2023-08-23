@@ -1,5 +1,4 @@
 <script>
-  import router, { redirect } from "page";
   import Loader from "../components/Loader.svelte";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
