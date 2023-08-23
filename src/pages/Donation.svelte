@@ -1,25 +1,25 @@
 <script>
+  import { params } from "../stores/pages";
+  import { charity, getCharity } from "../stores/charity";
   import Loader from "../components/Loader.svelte";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
-  import { charity, getCharity } from "../stores/charity";
 
-  export let params;
   let amount,
       name,
       email,
       agree = false;
 
-  getCharity(params.id);
+  getCharity($params.id);
 
   async function handleFormSubmit(event) {
-    const newData = await getCharity(params.id);
+    const newData = await getCharity($params.id);
     newData.pledged = newData.pledged + parseInt(amount);
 
     try {
       const res =await fetch(
-        `https://bwacharity.fly.dev/charities/${params.id}`,
+        `https://bwacharity.fly.dev/charities/${$params.id}`,
         {
           method: 'PUT',
           headers: {
@@ -35,7 +35,7 @@
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: params.id,
+          id: $params.id,
           amount: parseInt(amount),
           name,
           email
