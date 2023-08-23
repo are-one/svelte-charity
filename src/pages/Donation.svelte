@@ -3,22 +3,19 @@
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import MainScript from "../components/MainScript.svelte";
+  import { charity, getCharity } from "../store";
 
   export let params;
-  let charity,
-      amount,
+  let amount,
       name,
       email,
-      agree = false,
-      data = getCharity(params.id);
+      agree = false;
 
-  async function getCharity(id) {
-      const res = await fetch(`https://bwacharity.fly.dev/charities/${id}`);
-      return res.json();
-  }
+  getCharity(params.id);
 
   async function handleFormSubmit(event) {
-    charity.pledged = charity.pledged + parseInt(amount);
+    const newData = await getCharity(params.id);
+    newData.pledged = newData.pledged + parseInt(amount);
 
     try {
       const res =await fetch(
@@ -28,7 +25,7 @@
           headers: {
             'Content-Type' : 'application/json'
           },
-          body: JSON.stringify(charity)
+          body: JSON.stringify(newData)
         }
       );
 
@@ -54,8 +51,7 @@
     }
   }
 
-  data.then((value) => charity = value);
- </script>
+</script>
 
  <style>
   #xs-input-checkbox {
@@ -80,9 +76,9 @@
  <Header />
  <!-- welcome section -->
     <!--breadcumb start here-->
-  {#await data}
+  {#if !$charity}
     <Loader />
-  {:then}
+  {:else}
     <section
       class="xs-banner-inner-section parallax-window"
       style="background-image: url('/assets/images/backgrounds/kat-yukawa-K0E6E0a0R3A-unsplash.jpg')"
@@ -91,7 +87,7 @@
       <div class="container">
         <div class="color-white xs-inner-banner-content">
           <h2>Donate Now</h2>
-          <p>{charity.title}</p>
+          <p>{$charity.title}</p>
           <ul class="xs-breadcumb">
             <li class="badge badge-pill badge-primary">
               <a href="/" class="color-white">Home /</a> Donate
@@ -109,7 +105,7 @@
             <div class="col-lg-6">
               <div class="xs-donation-form-images">
                 <img
-                  src={charity.thumbnail ? charity.thumbnail : "/assets/images/christian-dubovan-Y_x747Yshlw-unsplash.jpg"}
+                  src={$charity.thumbnail ? $charity.thumbnail : "/assets/images/christian-dubovan-Y_x747Yshlw-unsplash.jpg"}
                   class="img-responsive"
                   alt="Family Images"
                 />
@@ -118,7 +114,7 @@
             <div class="col-lg-6">
               <div class="xs-donation-form-wraper">
                 <div class="xs-heading xs-mb-30">
-                  <h2 class="xs-title">{charity.title}</h2>
+                  <h2 class="xs-title">{$charity.title}</h2>
                   <p class="small">
                     To learn more about make donate charity with us visit our
                     "<span class="color-green">Contact us</span>" site. By
@@ -212,7 +208,7 @@
       </section>
       <!-- End donation form section -->
     </main>
-  {/await}
+  {/if}
 
 <Footer />
 

@@ -1,7 +1,7 @@
 <script>
-  import Modal from "./Modal.svelte";
-
-    export let charities;
+    import {charities} from "../store";
+    import Loader from "./Loader.svelte";
+    import Modal from "./Modal.svelte";
 
     function calculateFunded(pledged, target) {
         return Math.round((1 / (target/pledged)) * 100);
@@ -46,7 +46,7 @@
         </div><!-- .row end -->
 
         <div class="row">
-            {#each charities as charity}
+            {#each $charities as charity}
                 <div class="col-lg-4 col-md-6">
                     <!-- modal goes here -->
                     <Modal>
@@ -144,6 +144,8 @@
                         </div><!-- .xs-item-content END -->
                     </div><!-- .xs-popular-item END -->
                 </div>
+            {:else}
+                <Loader />
             {/each}
         </div><!-- .row end -->
     </div><!-- .container end -->
