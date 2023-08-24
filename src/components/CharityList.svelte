@@ -1,4 +1,5 @@
 <script>
+    import { fade, slide, fly } from "svelte/transition";
     import {charities} from "../stores/charity";
     import Loader from "./Loader.svelte";
     import Modal from "./Modal.svelte";
@@ -47,7 +48,7 @@
 
         <div class="row">
             {#each $charities as charity}
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" in:slide={{delay: 1000}} out:fade={{delay: 1000}}>
                     <!-- modal goes here -->
                     <Modal>
                         <!-- Modal -->
